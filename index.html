@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Day 카운터</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>D-Day 카운터</h1>
+        <div class="selector-wrapper">
+            <label for="event-selector">이벤트 선택:</label>
+            <select id="event-selector">
+                <option value="2026-03-28T14:00:00+09:00">2026 KBO 프로야구 개막</option>
+                <option value="2027-01-01T00:00:00+09:00">2027년 새해</option>
+            </select>
+        </div>
+        <div class="timer-display">
+            <div class="time-unit">
+                <span class="number" id="days">0</span>
+                <span class="label">일</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-unit">
+                <span class="number" id="hours">0</span>
+                <span class="label">시간</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-unit">
+                <span class="number" id="minutes">0</span>
+                <span class="label">분</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-unit">
+                <span class="number" id="seconds">0</span>
+                <span class="label">초</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-unit">
+                <span class="number" id="milliseconds">0</span>
+                <span class="label">밀리초</span>
+            </div>
+        </div>
+        <div class="event-name" id="event-name">2026 KBO 프로야구 개막</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
