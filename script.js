@@ -24,6 +24,9 @@ eventSelector.addEventListener('change', function() {
     updateTimer();
 });
 
+// 요일 배열
+const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
 // 현재 시간 업데이트 함수
 function updateCurrentTime() {
     const now = new Date();
@@ -32,9 +35,10 @@ function updateCurrentTime() {
     const day = String(now.getDate()).padStart(2, '0');
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
+    const dayOfWeek = weekDays[now.getDay()];
     
-    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM (초 제거)
-    currentTimeEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}`;
+    // 포맷: YYYY.MM.DD (DAY) HH:MM
+    currentTimeEl.textContent = `${year}.${month}.${day} (${dayOfWeek}) ${hours}:${minutes}`;
 }
 
 // 이벤트 일자 업데이트 함수
@@ -49,9 +53,10 @@ function updateEventDate() {
     const day = String(targetDate.getDate()).padStart(2, '0');
     const hours = String(targetDate.getHours()).padStart(2, '0');
     const minutes = String(targetDate.getMinutes()).padStart(2, '0');
+    const dayOfWeek = weekDays[targetDate.getDay()];
     
-    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM (초 제거)
-    eventDateEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}`;
+    // 포맷: YYYY.MM.DD (DAY) HH:MM
+    eventDateEl.textContent = `${year}.${month}.${day} (${dayOfWeek}) ${hours}:${minutes}`;
 }
 
 // 타이머 업데이트 함수

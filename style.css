@@ -115,7 +115,7 @@ body {
 
 .number {
     font-family: 'Orbitron', monospace;
-    font-size: 5em;
+    font-size: 6em;
     font-weight: 900;
     color: #ff3333;
     background: #000;
@@ -124,18 +124,18 @@ body {
     font-variant-numeric: tabular-nums;
     letter-spacing: 2px;
     border: 2px solid #330000;
-    min-width: 120px;
+    min-width: 140px;
     text-align: center;
 }
 
 .separator {
-    font-size: 4em;
+    font-size: 5em;
     color: #ff3333;
     font-weight: 300;
     margin: 0 2px;
     letter-spacing: -2px;
     line-height: 1;
-    padding-bottom: 25px;
+    padding-bottom: 30px;
 }
 
 .time-label {
@@ -150,13 +150,13 @@ body {
 
 .time-display {
     font-family: 'Orbitron', monospace;
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-weight: 700;
     text-align: center;
     padding: 20px;
     background: #000;
     border: 2px solid currentColor;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-variant-numeric: tabular-nums;
     min-height: 100px;
     display: flex;
@@ -189,14 +189,14 @@ body {
     }
 
     .number {
-        font-size: 2.5em;
+        font-size: 3em;
         padding: 15px 15px;
-        min-width: 70px;
+        min-width: 80px;
         letter-spacing: 1px;
     }
 
     .separator {
-        font-size: 2em;
+        font-size: 2.5em;
         margin: 0 1px;
         letter-spacing: -1px;
     }
@@ -211,9 +211,9 @@ body {
     }
 
     .time-display {
-        font-size: 1.5em;
+        font-size: 1.2em;
         padding: 15px;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
         min-height: 80px;
     }
 
@@ -225,17 +225,17 @@ body {
 
 @media (max-width: 480px) {
     .number {
-        font-size: 1.8em;
+        font-size: 2.2em;
         padding: 12px 10px;
-        min-width: 55px;
+        min-width: 65px;
     }
 
     .separator {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 
     .time-display {
-        font-size: 1.2em;
+        font-size: 1em;
         letter-spacing: 1px;
         min-height: 60px;
     }
