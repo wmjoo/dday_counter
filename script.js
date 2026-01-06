@@ -32,10 +32,9 @@ function updateCurrentTime() {
     const day = String(now.getDate()).padStart(2, '0');
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
     
-    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM:SS
-    currentTimeEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM (초 제거)
+    currentTimeEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}`;
 }
 
 // 이벤트 일자 업데이트 함수
@@ -50,10 +49,9 @@ function updateEventDate() {
     const day = String(targetDate.getDate()).padStart(2, '0');
     const hours = String(targetDate.getHours()).padStart(2, '0');
     const minutes = String(targetDate.getMinutes()).padStart(2, '0');
-    const seconds = String(targetDate.getSeconds()).padStart(2, '0');
     
-    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM:SS
-    eventDateEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM (초 제거)
+    eventDateEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}`;
 }
 
 // 타이머 업데이트 함수
