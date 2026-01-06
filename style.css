@@ -5,65 +5,100 @@
 }
 
 body {
-    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
-    background: #1a1a1a;
+    font-family: 'Orbitron', 'Courier New', monospace;
+    background: #000;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
-    background: #2a2a2a;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    max-width: 1000px;
     width: 100%;
-}
-
-h1 {
-    color: #fff;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    font-weight: 300;
-    letter-spacing: 2px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
 }
 
 .selector-wrapper {
-    margin-bottom: 40px;
-}
-
-.selector-wrapper label {
-    display: block;
-    margin-bottom: 10px;
-    color: #ccc;
-    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 #event-selector {
-    padding: 12px 20px;
-    font-size: 1em;
-    border: 2px solid #555;
-    border-radius: 8px;
-    background: #1a1a1a;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background: #111;
     color: #fff;
     cursor: pointer;
     transition: border-color 0.3s;
-    width: 100%;
-    max-width: 400px;
+    font-family: 'Orbitron', monospace;
 }
 
 #event-selector:hover {
-    border-color: #888;
+    border-color: #555;
 }
 
 #event-selector:focus {
     outline: none;
-    border-color: #aaa;
+    border-color: #888;
+}
+
+.display-panel {
+    background: #0a0a0a;
+    border: 3px solid #222;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.panel-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.destination-time {
+    border-color: #ff3333;
+}
+
+.destination-time .panel-label {
+    color: #ff3333;
+    text-shadow: 0 0 15px #ff3333, 0 0 30px #ff3333;
+}
+
+.present-time {
+    border-color: #33ff33;
+}
+
+.present-time .panel-label {
+    color: #33ff33;
+    text-shadow: 0 0 15px #33ff33, 0 0 30px #33ff33;
+}
+
+.last-time {
+    border-color: #ffaa33;
+}
+
+.last-time .panel-label {
+    color: #ffaa33;
+    text-shadow: 0 0 15px #ffaa33, 0 0 30px #ffaa33;
 }
 
 .timer-display {
@@ -71,9 +106,9 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 8px;
-    margin: 40px 0;
-    letter-spacing: -2px;
+    gap: 5px;
+    margin: 20px 0;
+    letter-spacing: -1px;
 }
 
 .time-unit {
@@ -83,121 +118,154 @@ h1 {
 }
 
 .number {
-    font-size: 4em;
+    font-family: 'Orbitron', monospace;
+    font-size: 5em;
     font-weight: 900;
-    color: #fff;
+    color: #ff3333;
     background: #000;
-    padding: 15px 20px;
+    padding: 20px 25px;
     line-height: 1;
-    margin-bottom: 8px;
     font-variant-numeric: tabular-nums;
-    letter-spacing: 0;
-    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
-    border: 2px solid #333;
-    min-width: 100px;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 10px #ff3333,
+        0 0 20px #ff3333,
+        0 0 30px #ff3333;
+    border: 2px solid #330000;
+    min-width: 120px;
     text-align: center;
-}
-
-.label {
-    font-size: 0.8em;
-    color: #aaa;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 51, 51, 0.2),
+        0 0 20px rgba(255, 51, 51, 0.3);
 }
 
 .separator {
-    font-size: 3.5em;
-    color: #fff;
+    font-size: 4em;
+    color: #ff3333;
     font-weight: 300;
     margin: 0 2px;
-    letter-spacing: -4px;
+    letter-spacing: -2px;
     line-height: 1;
-    padding-bottom: 20px;
+    text-shadow: 
+        0 0 10px #ff3333,
+        0 0 20px #ff3333;
+    padding-bottom: 25px;
 }
 
-.event-name {
-    margin-top: 30px;
-    font-size: 1.3em;
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 1px;
+.time-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7em;
+    color: #ff6666;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    text-transform: uppercase;
 }
 
-.info-section {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid #444;
+.time-display {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    border: 2px solid currentColor;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+    min-height: 100px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.info-item {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
-    font-size: 1em;
+    justify-content: center;
 }
 
-.info-label {
-    color: #aaa;
-    font-weight: 500;
+.present-time .time-display {
+    color: #33ff33;
+    text-shadow: 
+        0 0 10px #33ff33,
+        0 0 20px #33ff33,
+        0 0 30px #33ff33;
+    border-color: #003300;
+    box-shadow: 
+        inset 0 0 20px rgba(51, 255, 51, 0.2),
+        0 0 20px rgba(51, 255, 51, 0.3);
 }
 
-.info-value {
-    color: #fff;
-    font-weight: 600;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 1px;
+.last-time .time-display {
+    color: #ffaa33;
+    text-shadow: 
+        0 0 10px #ffaa33,
+        0 0 20px #ffaa33,
+        0 0 30px #ffaa33;
+    border-color: #331100;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 170, 51, 0.2),
+        0 0 20px rgba(255, 170, 51, 0.3);
 }
 
 @media (max-width: 768px) {
     .container {
-        padding: 30px 15px;
+        padding: 15px;
+        gap: 20px;
     }
 
-    h1 {
-        font-size: 1.8em;
+    .display-panel {
+        padding: 20px 15px;
     }
 
     .number {
-        font-size: 2.2em;
-        padding: 10px 12px;
+        font-size: 2.5em;
+        padding: 15px 15px;
         min-width: 70px;
+        letter-spacing: 1px;
     }
 
     .separator {
         font-size: 2em;
         margin: 0 1px;
-        letter-spacing: -3px;
+        letter-spacing: -1px;
     }
 
     .timer-display {
-        gap: 4px;
+        gap: 3px;
     }
 
-    .label {
-        font-size: 0.7em;
+    .time-label {
+        font-size: 0.6em;
+        letter-spacing: 1px;
     }
 
-    .info-item {
-        flex-direction: column;
-        gap: 5px;
-        font-size: 0.9em;
+    .time-display {
+        font-size: 1.5em;
+        padding: 15px;
+        letter-spacing: 2px;
+        min-height: 80px;
+    }
+
+    .panel-label {
+        font-size: 0.8em;
+        letter-spacing: 2px;
     }
 }
 
 @media (max-width: 480px) {
     .number {
         font-size: 1.8em;
-        padding: 8px 10px;
-        min-width: 60px;
+        padding: 12px 10px;
+        min-width: 55px;
     }
 
     .separator {
-        font-size: 1.6em;
+        font-size: 1.5em;
+    }
+
+    .time-display {
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        min-height: 60px;
+    }
+
+    .panel-label {
+        font-size: 0.7em;
+        letter-spacing: 1px;
     }
 }
-

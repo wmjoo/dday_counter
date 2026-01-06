@@ -9,7 +9,6 @@ let timerInterval = null;
 
 // DOM 요소 가져오기
 const eventSelector = document.getElementById('event-selector');
-const eventName = document.getElementById('event-name');
 const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
@@ -21,7 +20,6 @@ const currentTimeEl = document.getElementById('current-time');
 eventSelector.addEventListener('change', function() {
     const selectedTimestamp = this.value;
     targetDate = new Date(selectedTimestamp);
-    eventName.textContent = events[selectedTimestamp];
     updateEventDate();
     updateTimer();
 });
@@ -36,7 +34,8 @@ function updateCurrentTime() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     
-    currentTimeEl.textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM:SS
+    currentTimeEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
 }
 
 // 이벤트 일자 업데이트 함수
@@ -53,7 +52,8 @@ function updateEventDate() {
     const minutes = String(targetDate.getMinutes()).padStart(2, '0');
     const seconds = String(targetDate.getSeconds()).padStart(2, '0');
     
-    eventDateEl.textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    // Back to the Future 스타일 포맷: YYYY.MM.DD HH:MM:SS
+    eventDateEl.textContent = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
 }
 
 // 타이머 업데이트 함수
@@ -61,7 +61,6 @@ function updateTimer() {
     if (!targetDate) {
         const defaultTimestamp = eventSelector.value;
         targetDate = new Date(defaultTimestamp);
-        eventName.textContent = events[defaultTimestamp];
         updateEventDate();
     }
 
@@ -105,7 +104,6 @@ function init() {
     // 기본값 설정 (첫 번째 옵션)
     const defaultTimestamp = eventSelector.value;
     targetDate = new Date(defaultTimestamp);
-    eventName.textContent = events[defaultTimestamp];
     updateEventDate();
     
     // 타이머 시작

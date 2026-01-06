@@ -5,48 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D-Day 카운터</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>D-Day 카운터</h1>
         <div class="selector-wrapper">
-            <label for="event-selector">이벤트 선택:</label>
             <select id="event-selector">
                 <option value="2026-03-28T14:00:00+09:00">2026 KBO 프로야구 개막</option>
                 <option value="2027-01-01T00:00:00+09:00">2027년 새해</option>
             </select>
         </div>
-        <div class="timer-display">
-            <div class="time-unit">
-                <span class="number" id="days">0</span>
-                <span class="label">일</span>
+        
+        <div class="display-panel destination-time">
+            <div class="panel-label">DESTINATION TIME</div>
+            <div class="timer-display">
+                <div class="time-unit">
+                    <span class="number" id="days">00</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-unit">
+                    <span class="number" id="hours">00</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-unit">
+                    <span class="number" id="minutes">00</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-unit">
+                    <span class="number" id="seconds">00</span>
+                </div>
             </div>
-            <div class="separator">:</div>
-            <div class="time-unit">
-                <span class="number" id="hours">0</span>
-                <span class="label">시간</span>
-            </div>
-            <div class="separator">:</div>
-            <div class="time-unit">
-                <span class="number" id="minutes">0</span>
-                <span class="label">분</span>
-            </div>
-            <div class="separator">:</div>
-            <div class="time-unit">
-                <span class="number" id="seconds">0</span>
-                <span class="label">초</span>
-            </div>
+            <div class="time-label">DAYS : HOURS : MINUTES : SECONDS</div>
         </div>
-        <div class="event-name" id="event-name">2026 KBO 프로야구 개막</div>
-        <div class="info-section">
-            <div class="info-item">
-                <span class="info-label">이벤트 일자:</span>
-                <span class="info-value" id="event-date">-</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">현재 시간:</span>
-                <span class="info-value" id="current-time">-</span>
-            </div>
+
+        <div class="display-panel present-time">
+            <div class="panel-label">PRESENT TIME</div>
+            <div class="time-display" id="current-time">-</div>
+        </div>
+
+        <div class="display-panel last-time">
+            <div class="panel-label">LAST TIME DEPARTED</div>
+            <div class="time-display" id="event-date">-</div>
         </div>
     </div>
     <script src="script.js"></script>
