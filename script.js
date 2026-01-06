@@ -1,8 +1,7 @@
 // 이벤트 정보 (타임스탬프와 이름)
 const events = {
     '2026-03-28T14:00:00+09:00': '2026 KBO 프로야구 개막',
-    '2025-12-31T23:59:59+09:00': '2025년 마지막 날',
-    '2026-01-01T00:00:00+09:00': '2026년 새해'
+    '2027-01-01T00:00:00+09:00': '2027년 새해'
 };
 
 let targetDate = null;
@@ -15,15 +14,47 @@ const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
-const millisecondsEl = document.getElementById('milliseconds');
+const eventDateEl = document.getElementById('event-date');
+const currentTimeEl = document.getElementById('current-time');
 
 // 이벤트 선택 시 처리
 eventSelector.addEventListener('change', function() {
     const selectedTimestamp = this.value;
     targetDate = new Date(selectedTimestamp);
     eventName.textContent = events[selectedTimestamp];
+    updateEventDate();
     updateTimer();
 });
+
+// 현재 시간 업데이트 함수
+function updateCurrentTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    currentTimeEl.textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+// 이벤트 일자 업데이트 함수
+function updateEventDate() {
+    if (!targetDate) {
+        const defaultTimestamp = eventSelector.value;
+        targetDate = new Date(defaultTimestamp);
+    }
+    
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetDate.getDate()).padStart(2, '0');
+    const hours = String(targetDate.getHours()).padStart(2, '0');
+    const minutes = String(targetDate.getMinutes()).padStart(2, '0');
+    const seconds = String(targetDate.getSeconds()).padStart(2, '0');
+    
+    eventDateEl.textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
 
 // 타이머 업데이트 함수
 function updateTimer() {
@@ -31,26 +62,26 @@ function updateTimer() {
         const defaultTimestamp = eventSelector.value;
         targetDate = new Date(defaultTimestamp);
         eventName.textContent = events[defaultTimestamp];
+        updateEventDate();
     }
 
     const now = new Date();
     const difference = targetDate - now;
 
+    // 현재 시간 업데이트
+    updateCurrentTime();
+
     if (difference <= 0) {
         // 시간이 지났을 경우
-        daysEl.textContent = '0';
-        hoursEl.textContent = '0';
-        minutesEl.textContent = '0';
-        secondsEl.textContent = '0';
-        millisecondsEl.textContent = '0';
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
         return;
     }
 
-    // 밀리초 계산
-    const milliseconds = difference % 1000;
-    const totalSeconds = Math.floor(difference / 1000);
-    
     // 초 계산
+    const totalSeconds = Math.floor(difference / 1000);
     const seconds = totalSeconds % 60;
     const totalMinutes = Math.floor(totalSeconds / 60);
     
@@ -67,7 +98,6 @@ function updateTimer() {
     hoursEl.textContent = hours.toString().padStart(2, '0');
     minutesEl.textContent = minutes.toString().padStart(2, '0');
     secondsEl.textContent = seconds.toString().padStart(2, '0');
-    millisecondsEl.textContent = Math.floor(milliseconds / 10).toString().padStart(2, '0');
 }
 
 // 초기화
@@ -76,10 +106,11 @@ function init() {
     const defaultTimestamp = eventSelector.value;
     targetDate = new Date(defaultTimestamp);
     eventName.textContent = events[defaultTimestamp];
+    updateEventDate();
     
     // 타이머 시작
     updateTimer();
-    timerInterval = setInterval(updateTimer, 10); // 10ms마다 업데이트 (밀리초 표시)
+    timerInterval = setInterval(updateTimer, 1000); // 1초마다 업데이트
 }
 
 // 페이지 로드 시 초기화
