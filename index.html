@@ -20,26 +20,28 @@
         </div>
         
         <div id="custom-date-selector" class="custom-selector-wrapper" style="display: none;">
-            <div class="custom-selector-row">
-                <label>연도:</label>
-                <select id="year-selector"></select>
+            <div class="custom-timer-display">
+                <div class="custom-time-unit">
+                    <select id="year-selector"></select>
+                </div>
+                <div class="custom-separator">:</div>
+                <div class="custom-time-unit">
+                    <select id="month-selector"></select>
+                </div>
+                <div class="custom-separator">:</div>
+                <div class="custom-time-unit">
+                    <select id="day-selector"></select>
+                </div>
+                <div class="custom-separator">:</div>
+                <div class="custom-time-unit">
+                    <select id="hour-selector"></select>
+                </div>
+                <div class="custom-separator">:</div>
+                <div class="custom-time-unit">
+                    <select id="minute-selector"></select>
+                </div>
             </div>
-            <div class="custom-selector-row">
-                <label>월:</label>
-                <select id="month-selector"></select>
-            </div>
-            <div class="custom-selector-row">
-                <label>일:</label>
-                <select id="day-selector"></select>
-            </div>
-            <div class="custom-selector-row">
-                <label>시:</label>
-                <select id="hour-selector"></select>
-            </div>
-            <div class="custom-selector-row">
-                <label>분:</label>
-                <select id="minute-selector"></select>
-            </div>
+            <div class="custom-time-label">YEAR : MONTH : DAY : HOUR : MINUTE</div>
         </div>
         
         <div class="display-panel destination-time">
