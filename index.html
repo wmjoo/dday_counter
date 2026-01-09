@@ -15,7 +15,31 @@
             <select id="event-selector">
                 <option value="2026-03-28T14:00:00+09:00">2026 KBO 프로야구 개막</option>
                 <option value="2027-01-01T00:00:00+09:00">2027년 새해</option>
+                <option value="custom">사용자 지정 일정(일회성)</option>
             </select>
+        </div>
+        
+        <div id="custom-date-selector" class="custom-selector-wrapper" style="display: none;">
+            <div class="custom-selector-row">
+                <label>연도:</label>
+                <select id="year-selector"></select>
+            </div>
+            <div class="custom-selector-row">
+                <label>월:</label>
+                <select id="month-selector"></select>
+            </div>
+            <div class="custom-selector-row">
+                <label>일:</label>
+                <select id="day-selector"></select>
+            </div>
+            <div class="custom-selector-row">
+                <label>시:</label>
+                <select id="hour-selector"></select>
+            </div>
+            <div class="custom-selector-row">
+                <label>분:</label>
+                <select id="minute-selector"></select>
+            </div>
         </div>
         
         <div class="display-panel destination-time">

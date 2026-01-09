@@ -52,6 +52,54 @@ body {
     border-color: #888;
 }
 
+.custom-selector-wrapper {
+    background: #0a0a0a;
+    border: 2px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-selector-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-selector-row label {
+    color: #ccc;
+    font-size: 0.9em;
+    font-weight: 600;
+    min-width: 40px;
+}
+
+.custom-selector-row select {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    font-family: 'Orbitron', monospace;
+    min-width: 80px;
+}
+
+.custom-selector-row select:hover {
+    border-color: #555;
+}
+
+.custom-selector-row select:focus {
+    outline: none;
+    border-color: #888;
+}
+
 .display-panel {
     background: #0a0a0a;
     border: 3px solid #222;
